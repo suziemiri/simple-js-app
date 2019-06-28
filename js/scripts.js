@@ -29,5 +29,5 @@ var repository = [
 ];
 
 for (var i = 0; i <= 3; i++) {
-  console.log(repository[i]);
+  document.write(repository[i]);
 }
