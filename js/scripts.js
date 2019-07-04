@@ -29,15 +29,13 @@ var repository = [
 ];
 
 for (var i = 0; i < repository.length; i++) {
-  if (repository[i].height == 0.8) {
-    document.write(repository[i].name + ' (height: ' + repository[i].height') ');
-  } else if (repository[i].types[0] === 'Water') {
-    document.write(repository[i].name + ' (height: ' + repository[i].height') Wow thats big! ') ');
-  } else if (repository[i].types[0] === 'Fire') { 
-     document.write(repository[i].name + ' (height: ' + repository[i].height') ');
-   } else if (repository[i].types[1] === 'Electric') {  
-    document.write(repository[i].name + ' (height: ' + repository[i].height') ');
-   } else {
-     document.write(repository[i].name + '(height: ' + repository[i].height') ');
-   }
-}
+document.write('<br>' + "Name: " + repository[i].name + '' + '<br>' + 
+                 "Height: "+ repository[i].height + '' + '<br>' + 
+                 "Types: " + repository[i].types + '' + '<br>' +
+                 "Weaknesses: " + repository[i].weaknesses) + '' + '<br>' 
+    if (repository[i].height === 0.8) {
+    document.write('<br>' + 'Wow, that is a big pokemon!');
+  } else if (repository[i].height < 0.8) {
+    document.write('<br>' + 'Aww, how cute!');
+  } 
+ }
