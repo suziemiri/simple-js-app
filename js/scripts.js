@@ -27,15 +27,18 @@ var repository = [
   weaknesses: ['Electric', 'Ice','Rock'],
 },
 ];
-
-for (var i = 0; i < repository.length; i++) {
-document.write('<br>' + "Name: " + repository[i].name + '' + '<br>' + 
-                 "Height: "+ repository[i].height + '' + '<br>' + 
-                 "Types: " + repository[i].types + '' + '<br>' +
-                 "Weaknesses: " + repository[i].weaknesses) + '' + '<br>' 
-    if (repository[i].height === 0.8) {
+function printArrayDetails(pokemonList) {
+  for (var i = 0; i < pokemonList.length; i++) {
+    document.write('<br>' + "Name: " + pokemonList[i].name + '' + '<br>' +
+                 "Height: "+ pokemonList[i].height + '' + '<br>' +
+                 "Types: " + pokemonList[i].types + '' + '<br>' +
+                 "Weaknesses: " + pokemonList[i].weaknesses) + '' + '<br>'
+    if (pokemonList[i].height >= 0.8) {
     document.write('<br>' + 'Wow, that is a big pokemon!');
-  } else if (repository[i].height < 0.8) {
+  } else if (pokemonList[i].height < 0.8) {
     document.write('<br>' + 'Aww, how cute!');
-  } 
- }
+   }
+  }
+}
+printArrayDetails(repository);
+printArrayDetails(repository);
