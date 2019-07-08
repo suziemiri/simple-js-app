@@ -27,7 +27,11 @@ var repository = [
   weaknesses: ['Electric', 'Ice','Rock'],
 },
 ];
-function printArrayDetails(pokemonList) {
+
+Object.keys(repository).forEach(function(property) {
+  document.write(property + ' : ' + repository[property] + '<br>');
+});
+/*function printArrayDetails(pokemonList) {
   for (var i = 0; i < pokemonList.length; i++) {
     document.write('<br>' + "Name: " + pokemonList[i].name + '' + '<br>' +
                  "Height: "+ pokemonList[i].height + '' + '<br>' +
@@ -41,4 +45,4 @@ function printArrayDetails(pokemonList) {
   }
 }
 printArrayDetails(repository);
-printArrayDetails(repository);
+printArrayDetails(repository);*/
