@@ -29,7 +29,9 @@ var repository = [
 ];
 
 Object.keys(repository).forEach(function(property) {
-  document.write(property + ' : ' + repository[property] + '<br>');
+  document.write(property.name + ' : ' + repository[property.name] + '<br>'),
+  document.write(property.height + ' : ' + repository[property.height] + '<br>'),
+  document.write(property.types + ' : ' + repository[property.types] + '<br>')
 });
 /*function printArrayDetails(pokemonList) {
   for (var i = 0; i < pokemonList.length; i++) {
