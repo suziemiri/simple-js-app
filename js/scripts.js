@@ -28,23 +28,14 @@ var repository = [
 },
 ];
 
-Object.keys(repository).forEach(function(property) {
-  document.write(property.name + ' : ' + repository[property.name] + '<br>'),
-  document.write(property.height + ' : ' + repository[property.height] + '<br>'),
-  document.write(property.types + ' : ' + repository[property.types] + '<br>')
+repository.forEach(function(property){
+  document.write('Name' + ' : ' + property.name + '<br>'),
+  document.write('Height' + ' : ' + property.height + '<br>'),
+  document.write('Types' + ' : ' + property.types + '<br>'),
+  document.write('Weaknesses' + ' : ' + property.weaknesses + '<br>')
+  if (property.height >= 0.8) {
+  document.write('Wow, that is a big pokemon!' + '<br>' + '<br>');
+} else if (property.height < 0.8) {
+  document.write('Aww, how cute!' + '<br>' + '<br>');
+ }
 });
-/*function printArrayDetails(pokemonList) {
-  for (var i = 0; i < pokemonList.length; i++) {
-    document.write('<br>' + "Name: " + pokemonList[i].name + '' + '<br>' +
-                 "Height: "+ pokemonList[i].height + '' + '<br>' +
-                 "Types: " + pokemonList[i].types + '' + '<br>' +
-                 "Weaknesses: " + pokemonList[i].weaknesses) + '' + '<br>'
-    if (pokemonList[i].height >= 0.8) {
-    document.write('<br>' + 'Wow, that is a big pokemon!');
-  } else if (pokemonList[i].height < 0.8) {
-    document.write('<br>' + 'Aww, how cute!');
-   }
-  }
-}
-printArrayDetails(repository);
-printArrayDetails(repository);*/
