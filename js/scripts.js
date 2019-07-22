@@ -35,7 +35,7 @@ repository.forEach(function(property){
   document.write('Weaknesses' + ' : ' + property.weaknesses + '<br>')
   if (property.height >= 0.8) {
   document.write('Wow, that is a big pokemon!' + '<br>' + '<br>');
-} else if (property.height < 0.8) {
+} else {
   document.write('Aww, how cute!' + '<br>' + '<br>');
  }
 });
