@@ -1,3 +1,4 @@
+var pokemonRepository = (function () {
 var repository = [
 {
   name: 'Charmander',
@@ -27,8 +28,26 @@ var repository = [
   weaknesses: ['Electric', 'Ice','Rock'],
 },
 ];
+function add(pokemon) {
+  repository.push(pokemon);
+}
+function getAll() {
+  return repository;
+}
 
-repository.forEach(function(property){
+return {
+  add: add,
+  getAll: getAll
+};
+})();
+
+
+
+document.write(pokemonRepository.getAll()); // []
+pokemonRepository.add({ name: 'Pikachu', height: 0.5, types: ['Fire'], weaknesses: ['Ground', 'Electric', 'Water']  });
+document.write(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]
+
+/*repository.forEach(function(property){
   document.write('Name' + ' : ' + property.name + '<br>'),
   document.write('Height' + ' : ' + property.height + '<br>'),
   document.write('Types' + ' : ' + property.types + '<br>'),
@@ -38,4 +57,4 @@ repository.forEach(function(property){
 } else {
   document.write('Aww, how cute!' + '<br>' + '<br>');
  }
-});
+});*/
