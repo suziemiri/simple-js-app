@@ -40,12 +40,10 @@ return {
   getAll: getAll
 };
 })();
+forEach()
+pokemonRepository.add({ name: 'Vulpix', height: 0.5, types: ['Fire'], weaknesses: ['Ground', 'Electric', 'Water']  });
+document.write(pokemonRepository.getAll());
 
-
-
-document.write(pokemonRepository.getAll()); // []
-pokemonRepository.add({ name: 'Pikachu', height: 0.5, types: ['Fire'], weaknesses: ['Ground', 'Electric', 'Water']  });
-document.write(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]
 
 /*repository.forEach(function(property){
   document.write('Name' + ' : ' + property.name + '<br>'),
