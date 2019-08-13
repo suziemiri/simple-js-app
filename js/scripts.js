@@ -34,19 +34,54 @@ function add(pokemon) {
 function getAll() {
   return repository;
 }
+function addListItem(pokemon) {
+  var listItem = document.createElement("li");
+  var button = document.createElement("button");
+  button.innerText = pokemon.name;
+  button.classList.add("button-style");
+  listItem.appendChild(button);
+  $element.appendChild(listItem);
+  button.addEventListener("click", function showDetails(pokemon) {
+
+  });
+}
+
+function showDetails(pokemon) {
+  console.log(pokemon)
+}
 
 return {
   add: add,
-  getAll: getAll
+  getAll: getAll,
+  addListItem: addListItem,
+  showDetails: showDetails
 };
+
+
 })();
-pokemonRepository.getAll().forEach(function(pokemon) {
-pokemonRepository.add({ name: 'Vulpix', height: 0.5, types: ['Fire'], weaknesses: ['Ground', 'Electric', 'Water']  }),
-document.write('Name' + ' : ' + pokemon.name + '<br>'),
-document.write('Height' + ' : ' + pokemon.height + '<br>'),
-document.write('Types' + ' : ' + pokemon.types + '<br>'),
-document.write('Weaknesses' + ' : ' + pokemon.weaknesses + '<br>')
-  if (pokemon.height >= 0.8) {
+
+pokemonRepository.add(
+  { name: 'Vulpix',
+  height: 0.5,
+  types: ['Fire'],
+  weaknesses: ['Ground', 'Electric', 'Water']
+});
+
+
+var $element = document.querySelector(".pokemonList")
+
+  pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+
+});
+
+
+
+
+
+
+
+/*  if (pokemon.height >= 0.8) {
   document.write('Wow, that is a big pokemon!' + '<br>' + '<br>');
 } else {
   document.write('Aww, how cute!' + '<br>' + '<br>');
