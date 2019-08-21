@@ -1,33 +1,37 @@
 var pokemonRepository = (function () {
-var repository = [
-{
-  name: 'Charmander',
-  height: 0.8, //centimeters
-  types: ['Fire'],
-  weaknesses: ['Ground', 'Rock', 'Water'],
-},
+var repository = [];
+var  apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-{
-  name: 'Squirtle',
-  height: 0.4, //centimeters
-  types: ['Water'],
-  weaknesses: ['Electric', 'Grass'],
-},
+function loadList() {
+  return fetch(apiUrl).then(function (response) {
+    return response.json();
+  }).then(function (json) {
+    json.results.forEach(function (item) {
+      var pokemon = {
+        name: item.name,
+        detailsUrl: item.url
+      };
+      add(pokemon);
+    });
+  }).catch(function (e) {
+    console.error(e);
+  })
+}
 
-{
-  name: 'Pikachu',
-  height: 0.4, //centimeters
-  types: ['Electric'],
-  weaknesses: ['Ground'],
-},
+function loadDetails(item) {
+  var url = item.detailsUrl;
+  return fetch(url).then(function (response) {
+    return response.json();
+  }).then(function (details) {
+    //adding the details to the items...
+    item.imageUrl = details.sprites.front_shiny;
+    item.height = details.height;
+    item.types = Object.keys(details.types);
+  }).catch(function (e) {
+    console.error(e);
+  });
+}
 
-{
-  name: 'Pidgey',
-  height: 0.4, //centimeters
-  types: ['Normal', 'Flying'],
-  weaknesses: ['Electric', 'Ice','Rock'],
-},
-];
 function add(pokemon) {
   repository.push(pokemon);
 }
@@ -41,20 +45,24 @@ function addListItem(pokemon) {
   button.classList.add("button-style");
   listItem.appendChild(button);
   $element.appendChild(listItem);
-  button.addEventListener("click", function showDetails(pokemon) {
+  button.addEventListener("click", showDetails);
+    console.log(pokemon)
+};
 
+function showDetails(item) {
+  pokemonRepository.loadDetails(item).then(function () {
+    console.log(item);
   });
 }
 
-function showDetails(pokemon) {
-  console.log(pokemon)
-}
 
 return {
   add: add,
   getAll: getAll,
   addListItem: addListItem,
-  showDetails: showDetails
+  showDetails: showDetails,
+  loadList:loadList,
+  loadDetails:loadDetails
 };
 
 
@@ -70,9 +78,10 @@ pokemonRepository.add(
 
 var $element = document.querySelector(".pokemonList")
 
+pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
-
+  });
 });
 
 
