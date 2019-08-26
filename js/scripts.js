@@ -45,7 +45,8 @@ function addListItem(pokemon) {
   button.classList.add("button-style");
   listItem.appendChild(button);
   $element.appendChild(listItem);
-  button.addEventListener("click", showDetails);
+  button.addEventListener("click", function() {
+    showDetails(pokemon);});
     console.log(pokemon)
 };
 
