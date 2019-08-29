@@ -34,7 +34,7 @@ body {
   overflow: auto;
 
   /* this is used to center the modal */
-  display: block;
+  display: grid;
   text-align: center;
 }
 
@@ -81,4 +81,8 @@ body {
   border-radius: 3px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   transition: 0.2s opacity;
+}
+
+ul {
+  list-style: none;
 }
