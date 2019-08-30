@@ -25,8 +25,8 @@ function loadDetails(item) {
   }).then(function (details) {
     //adding the details to the items...
     item.imageUrl = details.sprites.front_shiny;
-    item.height = details.height;
-    item.weight = details.weight;
+    item.height = 'height: ' + details.height;
+    item.weight = 'weight: ' + details.weight;
     item.types = Object.keys(details.types);
   }).catch(function (e) {
     console.error(e);
